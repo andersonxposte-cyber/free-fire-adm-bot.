@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: free-fire-adm-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    disk:
+      name: freefire-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
